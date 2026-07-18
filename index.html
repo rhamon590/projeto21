@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça um programa digital com orientações práticas para melhorar hábitos alimentares e a rotina de bem-estar.">
+  <meta name="robots" content="index,follow">
+  <title>Programa 21 Dias | Hábitos mais saudáveis</title>
+
+  <!-- META PIXEL:
+  1) Substitua SEU_PIXEL_ID pelo ID real.
+  2) Remova os comentários deste bloco.
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '27790261123933349');
+    fbq('track', 'PageView');
+  </script>
+  -->
+
+  <link rel="preconnect" href="https://go.hotmart.com">
+  <style>
+    :root{
+      --green-950:#0a2e20;
+      --green-900:#0c3d28;
+      --green-800:#145c37;
+      --green-700:#19884a;
+      --green-500:#35c769;
+      --lime:#a8f238;
+      --cream:#f7fbf5;
+      --white:#ffffff;
+      --ink:#16201a;
+      --muted:#667169;
+      --line:#dfe8e1;
+      --shadow:0 22px 60px rgba(12,61,40,.14);
+      --radius:26px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(168,242,56,.18), transparent 25%),
+        linear-gradient(180deg,#fbfef9 0%,#f4faf5 100%);
+      line-height:1.55;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button,a{ -webkit-tap-highlight-color:transparent }
+
+    .container{width:min(1180px,calc(100% - 36px));margin-inline:auto}
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(16px);
+      background:rgba(255,255,255,.86);
+      border-bottom:1px solid rgba(223,232,225,.85);
+    }
+    .nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.04em}
+    .brand-mark{
+      width:42px;height:42px;border-radius:14px;
+      display:grid;place-items:center;
+      color:#fff;background:linear-gradient(145deg,var(--green-700),var(--green-950));
+      box-shadow:0 10px 24px rgba(20,92,55,.22);
+    }
+    .brand span:last-child{font-size:1.05rem}
+    .nav-links{display:flex;align-items:center;gap:24px;color:var(--muted);font-weight:700;font-size:.95rem}
+    .nav-links a:hover{color:var(--green-700)}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:52px;padding:0 24px;border:0;border-radius:16px;
+      font-weight:900;cursor:pointer;transition:.22s ease;
+    }
+    .btn-primary{
+      color:#092316;background:linear-gradient(135deg,var(--lime),#72de2f);
+      box-shadow:0 14px 28px rgba(90,190,40,.25);
+    }
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 34px rgba(90,190,40,.32)}
+    .btn-dark{color:#fff;background:var(--green-950)}
+    .btn-dark:hover{transform:translateY(-2px);background:#061f15}
+
+    .hero{padding:72px 0 52px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.03fr .97fr;gap:54px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;
+      color:var(--green-800);background:#eaf8e9;
+      border:1px solid #cfebcf;border-radius:999px;
+      padding:8px 13px;font-weight:900;font-size:.86rem;
+    }
+    .eyebrow::before{content:"";width:9px;height:9px;border-radius:99px;background:var(--green-500);box-shadow:0 0 0 5px rgba(53,199,105,.14)}
+    h1{
+      margin:20px 0 18px;
+      font-size:clamp(2.55rem,6vw,5.3rem);
+      line-height:.95;letter-spacing:-.065em;
+      max-width:760px;
+    }
+    h1 em{font-style:normal;color:var(--green-700)}
+    .lead{font-size:clamp(1.05rem,2vw,1.28rem);color:var(--muted);max-width:690px;margin:0 0 26px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .microcopy{font-size:.87rem;color:var(--muted);margin-top:12px}
+
+    .visual{
+      position:relative;min-height:570px;border-radius:36px;
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.92),rgba(237,248,234,.92));
+      border:1px solid rgba(207,235,207,.95);
+      box-shadow:var(--shadow);padding:18px;
+    }
+    .visual::before,.visual::after{
+      content:"";position:absolute;border-radius:999px;filter:blur(1px);z-index:-1
+    }
+    .visual::before{width:240px;height:240px;background:rgba(168,242,56,.28);right:-58px;top:-48px}
+    .visual::after{width:170px;height:170px;background:rgba(53,199,105,.16);left:-40px;bottom:20px}
+
+    .visual-image{
+      width:100%;height:100%;min-height:534px;object-fit:cover;
+      object-position:55% center;border-radius:25px;
+      filter:saturate(.94) contrast(.98);
+    }
+    .visual-overlay{
+      position:absolute;left:34px;right:34px;bottom:34px;
+      padding:22px;border-radius:22px;color:#fff;
+      background:linear-gradient(135deg,rgba(10,46,32,.96),rgba(20,92,55,.92));
+      box-shadow:0 18px 40px rgba(10,46,32,.28);
+    }
+    .visual-overlay strong{display:block;font-size:1.35rem;margin-bottom:4px}
+    .visual-overlay span{color:#dfeee5}
+
+    .trust-row{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+      margin-top:46px;
+    }
+    .trust-item{
+      background:rgba(255,255,255,.84);border:1px solid var(--line);
+      border-radius:18px;padding:17px;display:flex;gap:12px;align-items:center;
+    }
+    .trust-icon{
+      width:42px;height:42px;border-radius:14px;background:#eaf8e9;color:var(--green-800);
+      display:grid;place-items:center;font-size:1.2rem;flex:none;
+    }
+    .trust-item b{display:block;font-size:.94rem}
+    .trust-item small{color:var(--muted)}
+
+    section{padding:76px 0}
+    .section-kicker{color:var(--green-700);font-size:.85rem;font-weight:950;text-transform:uppercase;letter-spacing:.15em}
+    .section-title{font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;letter-spacing:-.045em;margin:10px 0 14px}
+    .section-copy{color:var(--muted);max-width:720px;margin:0}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+    .card{
+      background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+      padding:28px;box-shadow:0 14px 36px rgba(22,32,26,.06);
+    }
+    .card-number{
+      width:52px;height:52px;border-radius:18px;background:var(--green-950);
+      color:#fff;display:grid;place-items:center;font-weight:950;font-size:1.15rem;
+      margin-bottom:18px;
+    }
+    .card h3{font-size:1.22rem;margin:0 0 8px}
+    .card p{color:var(--muted);margin:0}
+
+    .how{
+      background:var(--green-950);color:#fff;position:relative;overflow:hidden
+    }
+    .how::before{
+      content:"";position:absolute;inset:auto -160px -220px auto;
+      width:520px;height:520px;border-radius:50%;background:rgba(168,242,56,.12)
+    }
+    .how .section-copy{color:#c8d8ce}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+    .step{padding:24px;border:1px solid rgba(255,255,255,.14);border-radius:22px;background:rgba(255,255,255,.06)}
+    .step b{display:block;color:var(--lime);font-size:.86rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+    .step h3{margin:0 0 8px}
+    .step p{margin:0;color:#c8d8ce}
+
+    .faq{max-width:860px;margin:36px auto 0}
+    details{
+      background:#fff;border:1px solid var(--line);border-radius:18px;
+      padding:0 20px;margin-bottom:12px;
+    }
+    summary{cursor:pointer;font-weight:900;padding:20px 0;list-style:none;display:flex;justify-content:space-between;gap:20px}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:"+";font-size:1.35rem;color:var(--green-700)}
+    details[open] summary::after{content:"–"}
+    details p{color:var(--muted);margin:0;padding:0 0 20px}
+
+    .cta-box{
+      border-radius:34px;padding:48px;
+      background:
+        radial-gradient(circle at 85% 15%,rgba(168,242,56,.32),transparent 24%),
+        linear-gradient(135deg,var(--green-950),var(--green-800));
+      color:#fff;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;
+      box-shadow:var(--shadow);
+    }
+    .cta-box h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;letter-spacing:-.045em;margin:0 0 10px}
+    .cta-box p{margin:0;color:#d8e5dc;max-width:700px}
+
+    footer{padding:34px 0 46px;color:var(--muted);font-size:.88rem}
+    .footer-grid{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;border-top:1px solid var(--line);padding-top:26px}
+    .footer-links{display:flex;flex-wrap:wrap;gap:18px}
+    .disclaimer{max-width:760px;margin-top:14px;font-size:.8rem}
+
+    .floating{
+      position:fixed;right:20px;bottom:20px;z-index:45;
+      box-shadow:0 16px 35px rgba(20,92,55,.28)
+    }
+
+    @media (max-width:980px){
+      .nav-links{display:none}
+      .hero-grid{grid-template-columns:1fr}
+      .visual{min-height:500px}
+      .visual-image{min-height:464px}
+      .trust-row{grid-template-columns:repeat(2,1fr)}
+      .cards,.steps{grid-template-columns:1fr}
+      .cta-box{grid-template-columns:1fr}
+    }
+    @media (max-width:620px){
+      .container{width:min(100% - 24px,1180px)}
+      .hero{padding-top:44px}
+      .hero-actions .btn{width:100%}
+      .visual{min-height:430px;padding:10px}
+      .visual-image{min-height:410px;object-position:60% center}
+      .visual-overlay{left:22px;right:22px;bottom:22px;padding:17px}
+      .trust-row{grid-template-columns:1fr}
+      section{padding:58px 0}
+      .cta-box{padding:30px 22px}
+      .footer-grid{flex-direction:column}
+      .floating{left:12px;right:12px;bottom:12px;width:calc(100% - 24px)}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="Ir para o início">
+        <span class="brand-mark">21</span>
+        <span>Projeto 21 Dias</span>
+      </a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#beneficios">Como funciona</a>
+        <a href="#conteudo">O que você encontra</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
+      <a class="btn btn-dark tracked-link" href="https://go.hotmart.com/C106791763F" target="_blank" rel="nofollow sponsored noopener">
+        Conhecer o programa
+      </a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Programa digital de hábitos saudáveis</span>
+            <h1>Uma rotina mais leve começa com <em>passos possíveis.</em></h1>
+            <p class="lead">
+              Conheça uma proposta de 21 dias com orientações práticas para organizar a alimentação,
+              melhorar a rotina e desenvolver hábitos mais consistentes.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary tracked-link cta-event" href="https://go.hotmart.com/C106791763F" target="_blank" rel="nofollow sponsored noopener">
+                Ver detalhes do programa →
+              </a>
+              <a class="btn" href="#beneficios">Entender como funciona</a>
+            </div>
+            <p class="microcopy">
+              A compra, o pagamento e o acesso ao conteúdo são processados pela plataforma Hotmart.
+            </p>
+          </div>
+
+          <div class="visual" aria-label="Apresentação do programa">
+            <img
+              class="visual-image"
+              src="assets/banner-programa-21-dias.png"
+              alt="Imagem ilustrativa de uma rotina de alimentação e bem-estar"
+              loading="eager"
+            >
+            <div class="visual-overlay">
+              <strong>Conheça a proposta completa</strong>
+              <span>Veja o conteúdo, as condições e as informações oficiais na página do produtor.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-item">
+            <span class="trust-icon">🔒</span>
+            <div><b>Ambiente seguro</b><small>Checkout processado pela Hotmart</small></div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">⚡</span>
+            <div><b>Acesso digital</b><small>Conforme as regras da oferta</small></div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">📱</span>
+            <div><b>Conteúdo online</b><small>Acesso por celular ou computador</small></div>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">📋</span>
+            <div><b>Informações oficiais</b><small>Consulte sempre a página do produtor</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios">
+      <div class="container">
+        <span class="section-kicker">Uma proposta simples</span>
+        <h2 class="section-title">Organize a rotina sem promessas milagrosas.</h2>
+        <p class="section-copy">
+          O objetivo desta página é apresentar a oferta. Os conteúdos, benefícios e condições finais
+          devem ser confirmados diretamente na página oficial do produto.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <span class="card-number">01</span>
+            <h3>Rotina mais organizada</h3>
+            <p>Uma estrutura de curto prazo pode ajudar você a visualizar melhor as pequenas ações do dia a dia.</p>
+          </article>
+          <article class="card">
+            <span class="card-number">02</span>
+            <h3>Conteúdo prático</h3>
+            <p>Consulte os módulos oficiais para entender quais materiais e orientações fazem parte da oferta.</p>
+          </article>
+          <article class="card">
+            <span class="card-number">03</span>
+            <h3>Acesso digital</h3>
+            <p>O conteúdo é disponibilizado online, conforme as condições definidas pelo produtor na Hotmart.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="conteudo">
+      <div class="container">
+        <span class="section-kicker" style="color:var(--lime)">Antes de comprar</span>
+        <h2 class="section-title">Confira a oferta com atenção.</h2>
+        <p class="section-copy">
+          Leia a descrição completa, verifique o conteúdo, a garantia, o suporte e as condições de acesso.
+        </p>
+
+        <div class="steps">
+          <article class="step">
+            <b>Passo 1</b>
+            <h3>Acesse a página oficial</h3>
+            <p>Use o botão desta página para abrir a oferta rastreada pelo seu link de afiliado.</p>
+          </article>
+          <article class="step">
+            <b>Passo 2</b>
+            <h3>Leia todos os detalhes</h3>
+            <p>Confirme o que está incluso, o valor atual, a política de garantia e as formas de pagamento.</p>
+          </article>
+          <article class="step">
+            <b>Passo 3</b>
+            <h3>Decida com tranquilidade</h3>
+            <p>Resultados variam. Não compre com base em expectativa de resultado garantido.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="duvidas">
+      <div class="container">
+        <span class="section-kicker">Perguntas frequentes</span>
+        <h2 class="section-title">Informações importantes.</h2>
+
+        <div class="faq">
+          <details>
+            <summary>Esta página vende diretamente o produto?</summary>
+            <p>Não. Ao clicar no botão, você será direcionado à página oficial da oferta na Hotmart, onde poderá consultar os detalhes e realizar a compra.</p>
+          </details>
+          <details>
+            <summary>Os resultados são garantidos?</summary>
+            <p>Não. Resultados relacionados a peso, medidas, alimentação ou bem-estar variam de pessoa para pessoa e dependem de diversos fatores.</p>
+          </details>
+          <details>
+            <summary>Este programa substitui médico ou nutricionista?</summary>
+            <p>Não. Conteúdo digital não substitui avaliação, diagnóstico ou acompanhamento profissional. Procure um profissional de saúde quando necessário.</p>
+          </details>
+          <details>
+            <summary>Quem processa o pagamento?</summary>
+            <p>O pagamento é processado no ambiente da Hotmart, conforme as opções e condições apresentadas no checkout oficial.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <h2>Veja o conteúdo completo na página oficial.</h2>
+            <p>Confira preço, módulos, suporte, garantia e condições atualizadas antes de decidir.</p>
+          </div>
+          <a class="btn btn-primary tracked-link cta-event" href="https://go.hotmart.com/C106791763F" target="_blank" rel="nofollow sponsored noopener">
+            Abrir oferta oficial →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="btn btn-primary floating tracked-link cta-event" href="https://go.hotmart.com/C106791763F" target="_blank" rel="nofollow sponsored noopener">
+    Conhecer o programa
+  </a>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand">
+            <span class="brand-mark">21</span>
+            <span>Projeto 21 Dias</span>
+          </div>
+          <p class="disclaimer">
+            Aviso: este site é uma página independente de divulgação como afiliado. Não representa a Hotmart
+            nem substitui a página oficial do produtor. Eventuais nomes, marcas e conteúdos pertencem aos seus respectivos titulares.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="privacidade.html">Privacidade</a>
+          <a href="termos.html">Termos de uso</a>
+          <a href="mailto:brhamonvieira@gmail.com">Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Repasse automático de UTMs para o link Hotmart.
+    (function () {
+      const allowed = [
+        "utm_source","utm_medium","utm_campaign","utm_content","utm_term",
+        "src","sck","fbclid","gclid","ttclid"
+      ];
+      const current = new URLSearchParams(window.location.search);
+
+      document.querySelectorAll(".tracked-link").forEach(link => {
+        try {
+          const url = new URL(link.href);
+          allowed.forEach(key => {
+            if (current.has(key)) url.searchParams.set(key, current.get(key));
+          });
+          link.href = url.toString();
+        } catch (e) {}
+      });
+
+      document.querySelectorAll(".cta-event").forEach(link => {
+        link.addEventListener("click", () => {
+          if (typeof fbq === "function") fbq("track", "ViewContent");
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: "affiliate_cta_click",
+              destination: link.href
+            });
+          }
+        });
+      });
+    })();
+  </script>
+
+  <!-- UTMIFY:
+  Cole aqui o script oficial fornecido no painel da Utmify.
+  Não use scripts copiados de terceiros.
+  -->
+</body>
+</html>
